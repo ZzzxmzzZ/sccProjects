@@ -1,0 +1,11 @@
+2022-03-26 16:05:46,197 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 16:05:46,267 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 16:05:47,143 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 16:05:47,176 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[createCourseData]表
+2022-03-26 16:05:47,195 - config.doExcel - INFO - 创建表[createCourseData]的数据字典
+2022-03-26 16:05:47,196 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[searchData]表
+2022-03-26 16:05:47,216 - config.doExcel - INFO - 创建表[createCourseData]的数据字典
+2022-03-26 16:05:48,515 - common.myUnit - INFO - 打开浏览器
+2022-03-26 16:05:51,496 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-26 16:05:56,551 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-26 16:05:58,773 - common.myUnit - INFO - 退出浏览器

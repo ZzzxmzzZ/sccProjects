@@ -1,0 +1,66 @@
+2022-03-06 12:05:56,579 - pageObject.basePage - ERROR - basePage -63 - 元素定位超时：('xpath', '//*[@id="content"]/div[1]/nav/ul/li[2]/div')
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 61, in findElement
+    WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(loc))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 128, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 415, in _find_element
+    raise e
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 411, in _find_element
+    return driver.find_element(*by)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=99.0.4844.51)
+
+2022-03-06 12:05:56,728 - testLogin - ERROR - testLogin -58 - 登录测试用例：%s 成功进入首页，但未成功登录
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\testCase\testLogin.py", line 47, in test_login
+    self.login.clickTuichuBtn()
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\loginPage.py", line 71, in clickTuichuBtn
+    self.click(*self.tuichu)
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 80, in click
+    text = self.getVal(*loc)
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 121, in getVal
+    element = self.findElement(*loc)
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 64, in findElement
+    raise e
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 61, in findElement
+    WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(loc))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\wait.py", line 71, in until
+    value = method(self._driver)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 128, in __call__
+    return _element_if_visible(_find_element(driver, self.locator))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 415, in _find_element
+    raise e
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 411, in _find_element
+    return driver.find_element(*by)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=99.0.4844.51)
+
+2022-03-06 12:06:09,626 - pageObject.basePage - ERROR - basePage -39 - Message: chrome not reachable
+  (Session info: chrome=99.0.4844.51)
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 34, in _open
+    self.driver.get(url)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=99.0.4844.51)
+

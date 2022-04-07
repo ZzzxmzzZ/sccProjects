@@ -1,0 +1,28 @@
+2022-03-19 13:59:17,579 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:17,682 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:17,742 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:17,792 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:17,841 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[sendNoticeData]表
+2022-03-19 13:59:17,907 - config.doExcel - INFO - 创建表[sendNoticeData]的数据字典
+2022-03-19 13:59:19,959 - common.myUnit - INFO - 打开浏览器
+2022-03-19 13:59:23,552 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 13:59:41,423 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 13:59:43,173 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 13:59:56,740 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:56,814 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:56,861 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:56,911 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 13:59:56,956 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[sendNoticeData]表
+2022-03-19 13:59:57,013 - config.doExcel - INFO - 创建表[sendNoticeData]的数据字典
+2022-03-19 13:59:59,118 - common.myUnit - INFO - 打开浏览器
+2022-03-19 14:00:02,938 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:12,666 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:14,290 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:15,885 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:17,480 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:19,088 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:20,682 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:22,281 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:23,875 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:25,531 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 14:00:29,545 - common.myUnit - INFO - 退出浏览器

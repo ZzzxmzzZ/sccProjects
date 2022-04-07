@@ -1,0 +1,27 @@
+2022-03-06 11:19:01,638 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-06 11:19:01,653 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[loginData]表
+2022-03-06 11:19:01,653 - config.doExcel - INFO - 创建表[loginData]的数据字典
+2022-03-06 11:19:02,965 - common.myUnit - INFO - 打开浏览器
+2022-03-06 11:19:02,981 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-06 11:19:03,504 - pageObject.basePage - INFO - 成功进入http://127.0.0.1:8081/login 
+2022-03-06 11:19:03,659 - pageObject.basePage - INFO - http://127.0.0.1:8081/login 加载成功!
+2022-03-06 11:19:03,661 - testLogin - INFO -    *** 登录测试用例：loginTest-01 开启密码登陆的教师账号和正确的密码 ***
+2022-03-06 11:19:03,819 - pageObject.basePage - INFO - 输入 [admin]
+2022-03-06 11:19:03,905 - pageObject.basePage - INFO - 输入 [123456]
+2022-03-06 11:19:04,312 - pageObject.basePage - INFO - 点击Sign in
+2022-03-06 11:19:05,879 - testLogin - INFO - 登录测试用例 loginTest-01 测试用例通过！
+2022-03-06 11:19:06,583 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-06 11:19:06,583 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-06 11:19:06,805 - pageObject.basePage - INFO - 成功进入http://127.0.0.1:8081/login 
+2022-03-06 11:19:06,808 - pageObject.basePage - INFO - http://127.0.0.1:8081/login 加载成功!
+2022-03-06 11:19:06,808 - testLogin - INFO -    *** 登录测试用例：loginTest-02 开启密码登陆的教师账号和错误的密码 ***
+2022-03-06 11:19:17,329 - pageObject.basePage - ERROR - 元素定位超时：('id', 'username')
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 61, in findElement
+    WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(loc))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2022-03-06 11:19:18,032 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-06 11:19:20,188 - common.myUnit - INFO - 退出浏览器

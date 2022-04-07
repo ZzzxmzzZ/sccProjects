@@ -1,0 +1,24 @@
+2022-03-19 15:51:09,325 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:09,354 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:10,603 - common.myUnit - INFO - 打开浏览器
+2022-03-19 15:51:10,605 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 15:51:15,698 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-19 15:51:17,855 - common.myUnit - INFO - 退出浏览器
+2022-03-19 15:51:20,013 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:20,042 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:21,367 - common.myUnit - INFO - 打开浏览器
+2022-03-19 15:51:21,372 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 15:51:25,905 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-19 15:51:28,121 - common.myUnit - INFO - 退出浏览器
+2022-03-19 15:51:29,701 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:29,744 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:31,133 - common.myUnit - INFO - 打开浏览器
+2022-03-19 15:51:31,136 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 15:51:37,692 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-19 15:51:39,840 - common.myUnit - INFO - 退出浏览器
+2022-03-19 15:51:43,798 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:43,828 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 15:51:45,170 - common.myUnit - INFO - 打开浏览器
+2022-03-19 15:51:45,174 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 15:52:00,825 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-19 15:52:02,971 - common.myUnit - INFO - 退出浏览器

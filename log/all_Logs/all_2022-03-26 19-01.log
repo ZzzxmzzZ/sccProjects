@@ -1,0 +1,46 @@
+2022-03-26 19:01:10,266 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:10,375 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:10,423 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:10,474 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:10,501 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[createCourseData]表
+2022-03-26 19:01:10,522 - config.doExcel - INFO - 创建表[createCourseData]的数据字典
+2022-03-26 19:01:10,523 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[searchData]表
+2022-03-26 19:01:10,544 - config.doExcel - INFO - 创建表[searchData]的数据字典
+2022-03-26 19:01:10,544 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[auditCourseData]表
+2022-03-26 19:01:10,566 - config.doExcel - ERROR - 获取工作表[auditCourseData]失败
+Traceback (most recent call last):
+  File "D:\Software\python\Anaconda\lib\site-packages\xlrd\book.py", line 474, in sheet_by_name
+    sheetx = self._sheet_names.index(sheet_name)
+ValueError: 'auditCourseData' is not in list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\config\doExcel.py", line 18, in __init__
+    self.sheetName = self.workBook.sheet_by_name(sheetName) #获取名字为sheetName的工作表
+  File "D:\Software\python\Anaconda\lib\site-packages\xlrd\book.py", line 476, in sheet_by_name
+    raise XLRDError('No sheet named <%r>' % sheet_name)
+xlrd.biffh.XLRDError: No sheet named <'auditCourseData'>
+2022-03-26 19:01:27,162 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:27,256 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:27,285 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:27,318 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 19:01:27,345 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[createCourseData]表
+2022-03-26 19:01:27,365 - config.doExcel - INFO - 创建表[createCourseData]的数据字典
+2022-03-26 19:01:27,365 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[searchData]表
+2022-03-26 19:01:27,387 - config.doExcel - INFO - 创建表[searchData]的数据字典
+2022-03-26 19:01:27,387 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[auditCourseData]表
+2022-03-26 19:01:27,410 - config.doExcel - ERROR - 获取工作表[auditCourseData]失败
+Traceback (most recent call last):
+  File "D:\Software\python\Anaconda\lib\site-packages\xlrd\book.py", line 474, in sheet_by_name
+    sheetx = self._sheet_names.index(sheet_name)
+ValueError: 'auditCourseData' is not in list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\config\doExcel.py", line 18, in __init__
+    self.sheetName = self.workBook.sheet_by_name(sheetName) #获取名字为sheetName的工作表
+  File "D:\Software\python\Anaconda\lib\site-packages\xlrd\book.py", line 476, in sheet_by_name
+    raise XLRDError('No sheet named <%r>' % sheet_name)
+xlrd.biffh.XLRDError: No sheet named <'auditCourseData'>

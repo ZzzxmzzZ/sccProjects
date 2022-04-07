@@ -1,0 +1,52 @@
+2022-03-06 11:14:18,504 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-06 11:14:18,926 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[loginData]表
+2022-03-06 11:14:18,926 - config.doExcel - INFO - 创建表[loginData]的数据字典
+2022-03-06 11:14:20,642 - common.myUnit - INFO - 打开浏览器
+2022-03-06 11:14:20,719 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-06 11:14:21,560 - pageObject.basePage - INFO - 成功进入http://127.0.0.1:8081/login 
+2022-03-06 11:14:21,704 - pageObject.basePage - INFO - http://127.0.0.1:8081/login 加载成功!
+2022-03-06 11:14:21,704 - testLogin - INFO -    *** 登录测试用例：loginTest-01 开启密码登陆的教师账号和正确的密码 ***
+2022-03-06 11:14:21,791 - pageObject.basePage - INFO - 输入 [admin]
+2022-03-06 11:14:21,892 - pageObject.basePage - INFO - 输入 [123456]
+2022-03-06 11:14:22,303 - pageObject.basePage - INFO - 点击Sign in
+2022-03-06 11:14:23,858 - testLogin - INFO - 登录测试用例：loginTest-01 未通过！
+2022-03-06 11:14:23,858 - testLogin - ERROR - 登录测试用例：%s 成功进入首页，但未成功登录
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\testCase\testLogin.py", line 40, in test_login
+    result = self.assertIn(userData["expected"], message)
+  File "D:\Software\python\Anaconda\lib\unittest\case.py", line 1119, in assertIn
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "D:\Software\python\Anaconda\lib\unittest\case.py", line 693, in fail
+    raise self.failureException(msg)
+AssertionError: '个人信息 ' not found in '个人信息(Information)'
+2022-03-06 11:14:23,905 - pageObject.basePage - ERROR - 未能保存失败截图
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\testCase\testLogin.py", line 40, in test_login
+    result = self.assertIn(userData["expected"], message)
+  File "D:\Software\python\Anaconda\lib\unittest\case.py", line 1119, in assertIn
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "D:\Software\python\Anaconda\lib\unittest\case.py", line 693, in fail
+    raise self.failureException(msg)
+AssertionError: '个人信息 ' not found in '个人信息(Information)'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 268, in saveScreenShot
+    self.driver.save_screenshot(os.path.join(conf.failImagePath,filename))
+AttributeError: 'ConfigParser' object has no attribute 'failImagePath'
+2022-03-06 11:14:24,635 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-06 11:14:24,882 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-06 11:14:25,091 - pageObject.basePage - INFO - 成功进入http://127.0.0.1:8081/login 
+2022-03-06 11:14:25,097 - pageObject.basePage - INFO - http://127.0.0.1:8081/login 加载成功!
+2022-03-06 11:14:25,097 - testLogin - INFO -    *** 登录测试用例：loginTest-02 开启密码登陆的教师账号和错误的密码 ***
+2022-03-06 11:14:35,640 - pageObject.basePage - ERROR - 元素定位超时：('id', 'username')
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 61, in findElement
+    WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(loc))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2022-03-06 11:14:36,342 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-06 11:14:38,546 - common.myUnit - INFO - 退出浏览器

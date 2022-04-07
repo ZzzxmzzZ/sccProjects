@@ -1,0 +1,19 @@
+2022-03-14 16:51:14,743 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-14 16:51:14,773 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-14 16:51:14,791 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-14 16:51:14,809 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[createActionData]表
+2022-03-14 16:51:14,829 - config.doExcel - INFO - 创建表[createActionData]的数据字典
+2022-03-14 16:51:16,078 - common.myUnit - INFO - 打开浏览器
+2022-03-14 16:51:33,387 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-14 16:51:33,421 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-14 16:51:33,440 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-14 16:51:33,457 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[createActionData]表
+2022-03-14 16:51:33,476 - config.doExcel - INFO - 创建表[createActionData]的数据字典
+2022-03-14 16:51:34,814 - common.myUnit - INFO - 打开浏览器
+2022-03-14 16:51:41,678 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-14 16:51:43,627 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-14 16:51:43,634 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-14 16:51:45,606 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-14 16:51:45,607 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-14 16:51:47,058 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-14 16:51:47,059 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************

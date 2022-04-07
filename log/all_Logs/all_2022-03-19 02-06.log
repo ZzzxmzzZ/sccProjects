@@ -1,0 +1,11 @@
+2022-03-19 02:06:12,910 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 02:06:12,942 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 02:06:12,962 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 02:06:12,982 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-19 02:06:12,999 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[sendNoticeData]表
+2022-03-19 02:06:13,025 - config.doExcel - INFO - 创建表[sendNoticeData]的数据字典
+2022-03-19 02:06:14,340 - common.myUnit - INFO - 打开浏览器
+2022-03-19 02:06:18,039 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 02:06:31,034 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 02:06:32,655 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-19 02:06:34,215 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************

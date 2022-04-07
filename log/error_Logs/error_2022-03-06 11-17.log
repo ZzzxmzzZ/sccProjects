@@ -1,0 +1,8 @@
+2022-03-06 11:17:59,100 - pageObject.basePage - ERROR - basePage -63 - 元素定位超时：('id', 'username')
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 61, in findElement
+    WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(loc))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+

@@ -1,0 +1,8 @@
+2022-03-26 17:21:35,431 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 17:21:35,466 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
+2022-03-26 17:21:35,486 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[uploadFileData]表
+2022-03-26 17:21:35,505 - config.doExcel - INFO - 创建表[uploadFileData]的数据字典
+2022-03-26 17:21:36,804 - common.myUnit - INFO - 打开浏览器
+2022-03-26 17:21:39,864 - common.myUnit - INFO - ************************ 开始执行测试用例 ************************
+2022-03-26 17:21:42,192 - common.myUnit - INFO - ************************ 测试用例执行结束 ************************
+2022-03-26 17:21:44,439 - common.myUnit - INFO - 退出浏览器

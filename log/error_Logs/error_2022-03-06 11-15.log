@@ -1,0 +1,13 @@
+2022-03-06 11:15:33,157 - pageObject.basePage - ERROR - basePage -280 - 未能保存通过截图
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 278, in saveScreenShot
+    self.driver.save_screenshot(os.path.join(conf.passImagePath,filename))
+AttributeError: 'ConfigParser' object has no attribute 'passImagePath'
+2022-03-06 11:15:44,629 - pageObject.basePage - ERROR - basePage -63 - 元素定位超时：('id', 'username')
+Traceback (most recent call last):
+  File "D:\Software\PycharmProjects\sccProjects\pageObject\basePage.py", line 61, in findElement
+    WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(loc))
+  File "D:\Software\python\Anaconda\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
