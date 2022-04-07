@@ -1,3 +1,0 @@
-2022-03-12 11:12:44,044 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
-2022-03-12 11:12:44,069 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[loginData]表
-2022-03-12 11:12:44,074 - config.doExcel - INFO - 创建表[loginData]的数据字典

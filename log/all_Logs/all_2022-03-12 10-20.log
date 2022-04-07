@@ -1,9 +1,0 @@
-2022-03-12 10:20:52,568 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
-2022-03-12 10:20:53,285 - config.doExcel - INFO - 开始获取[elementDate.xls]的[loginData]表
-2022-03-12 10:20:53,285 - config.doExcel - ERROR - 获取工作表[loginData]失败
-Traceback (most recent call last):
-  File "D:\Software\PycharmProjects\sccProjects\config\doExcel.py", line 17, in __init__
-    self.workBook = xlrd.open_workbook(self.dataFile)
-  File "D:\Software\python\Anaconda\lib\site-packages\xlrd\__init__.py", line 111, in open_workbook
-    with open(filename, "rb") as f:
-FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Software\\PycharmProjects\\sccProjects\\testData\\elementDate.xls'

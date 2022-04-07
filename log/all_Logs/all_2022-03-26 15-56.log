@@ -1,8 +1,0 @@
-2022-03-26 15:56:47,535 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
-2022-03-26 15:56:47,572 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
-2022-03-26 15:56:47,594 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[uploadFileData]表
-2022-03-26 15:56:47,614 - config.doExcel - INFO - 创建表[uploadFileData]的数据字典
-2022-03-26 15:56:49,217 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
-2022-03-26 15:56:49,254 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[elementsInfo]表
-2022-03-26 15:56:49,274 - config.doExcel - INFO - 开始获取[elementDate.xlsx]的[uploadFileData]表
-2022-03-26 15:56:49,293 - config.doExcel - INFO - 创建表[uploadFileData]的数据字典
