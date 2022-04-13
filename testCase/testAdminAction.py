@@ -12,7 +12,7 @@ from common.log import Logger
 from common.myUnit import AdminUnittest
 from config.conf import baseUrl
 from config.doExcel import ReadExcel
-#from common.log import Logger
+#from common.report import Logger
 from pageObject.admin.adminActionPage import AdminActionPage
 from pageObject.admin.adminActionSearchPage import AdminActionSearchPage
 

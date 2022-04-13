@@ -81,7 +81,7 @@ class LoginPage(BasePage):
     #     self.loginFunc(userId, pwd)
     #     sleep(0.8)
     #     while self.driver.current_url != homeUrl:
-    #         log.logger.info("重新登录")
+    #         report.logger.info("重新登录")
     #         self.loginFunc(userId, pwd)
     #         sleep(0.8)
     #     self.isUserNameInWelcomeText(userName)
@@ -91,7 +91,7 @@ class LoginPage(BasePage):
     #     self.loginFunc(userId, pwd)
     #     sleep(0.8)
     #     while self.driver.current_url != homeUrl:
-    #         log.logger.info("重新登录")
+    #         report.logger.info("重新登录")
     #         self.loginFunc(userId, pwd)
     #         sleep(0.8)
     #     self.isUserNameInWelcomeText(userName)
@@ -101,7 +101,7 @@ class LoginPage(BasePage):
     #     self.loginFunc(userId, pwd)
     #     sleep(0.8)
     #     while self.driver.current_url != homeUrl:
-    #         log.logger.info("重新登录")
+    #         report.logger.info("重新登录")
     #         self.loginFunc(userId, pwd)
     #         sleep(0.8)
     #     self.isUserNameInWelcomeText(userName)
@@ -111,7 +111,7 @@ class LoginPage(BasePage):
     #     self.loginFunc(userId, pwd)
     #     sleep(0.5)
     #     while self.driver.current_url != homeUrl:
-    #         log.logger.info("重新登录")
+    #         report.logger.info("重新登录")
     #         self.loginFunc(userId, pwd)
     #     self.isUserNameInWelcomeText(userName)
 

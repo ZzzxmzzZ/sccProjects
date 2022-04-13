@@ -11,7 +11,7 @@ class ReadExcel(object):
 
     def __init__(self,fileName='Data.xlsx',sheetName='user'):
         try:
-            # log.logger.info("开始获取[%s]的[%s]表" % (fileName,sheetName))
+            # report.logger.info("开始获取[%s]的[%s]表" % (fileName,sheetName))
             self.dataFile = os.path.join(conf.dataPath, fileName)
             self.workBook = xlrd.open_workbook(self.dataFile)
             self.sheetName = self.workBook.sheet_by_name(sheetName) #获取名字为sheetName的工作表

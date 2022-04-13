@@ -60,7 +60,7 @@ class MyUnittest(unittest.TestCase):
     #     self.login = LoginPage(self.driver)
     #     self.login.open()
     #     self.mock_stuLogin()
-    #     log.logger.info('************************ 开始执行测试用例 ************************')
+    #     report.logger.info('************************ 开始执行测试用例 ************************')
 
     def setUp(self) :
         print("执行了setup")

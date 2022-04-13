@@ -34,7 +34,7 @@ class LoginPage(BasePage):
     #     try:
     #         info = self.getVal(*self.errorMessage)
     #     except Exception as e:
-    #         log.logger.info("无登录失败提示信息")
+    #         report.logger.info("无登录失败提示信息")
     #         raise e
     #     else:
     #         return info
@@ -82,7 +82,7 @@ class LoginPage(BasePage):
             # info = self.getVal(*self.errorMessage)
         except Exception as e:
             print("无登录失败提示信息")
-            # log.logger.info("无登录失败提示信息")
+            # report.logger.info("无登录失败提示信息")
             raise e
         else:
             return element_text
@@ -93,10 +93,10 @@ class LoginPage(BasePage):
     #     try:
     #         assert userName in message
     #     except Exception as e:
-    #         log.logger.info('用户：%s 登录失败' % userName)
+    #         report.logger.info('用户：%s 登录失败' % userName)
     #         raise e
     #     else:
-    #         log.logger.info("用户：%s 登录成功" % userName)
+    #         report.logger.info("用户：%s 登录成功" % userName)
 
     def stuLogin(self,userId='admin', password='123456'):
         self.loginFunc(userId, password)
@@ -156,7 +156,7 @@ class LoginPage(BasePage):
     #     self.loginFunc(userId, pwd)
     #     sleep(0.5)
     #     while self.driver.current_url != homeUrl:
-    #         log.logger.info("重新登录")
+    #         report.logger.info("重新登录")
     #         self.loginFunc(userId, pwd)
     #     self.isUserNameInWelcomeText(userName)
 

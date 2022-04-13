@@ -94,7 +94,7 @@ Version in 0.8.0
 
 Version in 0.7.1
 * Back port to Python 2.3 (Frank Horowitz).
-* Fix missing scroll bars in detail log (Podi).
+* Fix missing scroll bars in detail report (Podi).
 """
 
 # TODO: color stderr

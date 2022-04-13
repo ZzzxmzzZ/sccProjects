@@ -61,15 +61,15 @@ class BasePage(object):
             self.driver.refresh()
             print("输入了url")
         except Exception as e:
-            # log.logger.exception(e, exc_info=True)
+            # report.logger.exception(e, exc_info=True)
             raise ValueError('登入 %s 失败，请检查！' % url)
         else:
-            log.logger.info('成功进入%s ' % url)
+            report.logger.info('成功进入%s ' % url)
             self.driver.maximize_window()
 
     def open(self,url = testUrl):
         self._open(url)
-        # log.logger.info('%s 加载成功!' % url)
+        # report.logger.info('%s 加载成功!' % url)
         return self.driver
 
     '''
@@ -91,7 +91,7 @@ class BasePage(object):
             log.logger.exception('元素定位超时：%s' % (loc,) ,exc_info=True)
             raise e
         else:
-            # log.logger.info('成功定位元素：%s' % (loc,))
+            # report.logger.info('成功定位元素：%s' % (loc,))
             return self.driver.find_element(*loc)
 
     def findElements(self,*loc):
@@ -101,7 +101,7 @@ class BasePage(object):
             log.logger.exception('元素组定位超时：%s' % (loc,), exc_info=True)
             raise e
         else:
-            # log.logger.info('成功定位元素组： %s' % (loc,))
+            # report.logger.info('成功定位元素组： %s' % (loc,))
             return self.driver.find_elements(*loc)
 
     def click(self,*loc):
@@ -143,7 +143,7 @@ class BasePage(object):
     #     win32gui.SendMessage(edit, win32con.WM_SETTEXT, None, file)
     #     win32gui.SendMessage(dialog, win32con.WM_COMMAND, 1, button)
     #
-    #     log.logger.info("文件上传完毕")
+    #     report.logger.info("文件上传完毕")
 
     def getVal(self, *loc):
         element = self.findElement(*loc)
@@ -151,13 +151,13 @@ class BasePage(object):
             value = element.text
         except Exception:
             value = element.get_attribute('value')
-            # log.logger.info('获取元素 [%s] 的值 [%s] 失败' % (loc, value))
+            # report.logger.info('获取元素 [%s] 的值 [%s] 失败' % (loc, value))
             return value
         except:
             log.logger.exception('获取元素 [%s] 的值 [%s] 失败', exc_info=True)
             raise Exception
         else:
-            # log.logger.info('获取元素 [%s] 的值 [%s]' % (loc,value))
+            # report.logger.info('获取元素 [%s] 的值 [%s]' % (loc,value))
             return value
 
     def getVals(self,*loc):
@@ -170,7 +170,7 @@ class BasePage(object):
             log.logger.exception('获取失败', exc_info=True)
             raise e
         else:
-            # log.logger.info('获取元素组 [%s] 的值 [%s]' % (loc, val_list))
+            # report.logger.info('获取元素组 [%s] 的值 [%s]' % (loc, val_list))
             return val_list
 
     def getValue(self,*loc):
@@ -188,7 +188,7 @@ class BasePage(object):
             else:
                 return list
         else:
-            # log.logger.info('获取元素组 [%s] 的值 [%s]' % (loc, val_list))
+            # report.logger.info('获取元素组 [%s] 的值 [%s]' % (loc, val_list))
             return list
 
 
@@ -297,24 +297,24 @@ class BasePage(object):
     #                 img = self.img2base(conf.failImagePath,filename)
     #                 print(HTML_IMG_TEMPLATE.format(img,img))
     #             except Exception :
-    #                 log.logger.exception("未能保存失败截图",exc_info=True)
+    #                 report.logger.exception("未能保存失败截图",exc_info=True)
     #             else:
-    #                 log.logger.info(
+    #                 report.logger.info(
     #                     '成功保存失败截图 [%s]' % filename)
     #         elif "pass" in list_value[0].split("_"):
     #             try:
     #                 self.driver.save_screenshot(os.path.join(conf.passImagePath,filename))
     #             except Exception:
-    #                 log.logger.exception("未能保存通过截图",exc_info=True)
+    #                 report.logger.exception("未能保存通过截图",exc_info=True)
     #             else:
-    #                 log.logger.info(
+    #                 report.logger.info(
     #                     '成功保存通过截图 [%s]' % filename)
     #         else:
     #             #格式不包含fail/pass
-    #             log.logger.info('[%s]截图保存失败，格式名不包含fail/pass' %filename)
+    #             report.logger.info('[%s]截图保存失败，格式名不包含fail/pass' %filename)
     #     else:
     #         #非png/jpg格式
-    #         log.logger.info(
+    #         report.logger.info(
     #             '[%s]截图保存失败，非png/jpg格式' % filename)
 
 '''

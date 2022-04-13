@@ -30,7 +30,7 @@ class WbDriver(object):
                                  exc_info=True)
             raise e
         else:
-            # log.logger.info('成功找到chromedriver')
+            # report.logger.info('成功找到chromedriver')
             print("成功执行chrome（）")
             return self.driver
 

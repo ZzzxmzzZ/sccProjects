@@ -15,7 +15,7 @@ from common.log import Logger
 from common.myUnit import AdminUnittest
 from config.conf import baseUrl, casePath
 from config.doExcel import ReadExcel
-#from common.log import Logger
+#from common.report import Logger
 
 from pageObject.admin.adminStuManagePage import AdminStuManagePage
 

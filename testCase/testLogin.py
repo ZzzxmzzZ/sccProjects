@@ -10,10 +10,11 @@ import xlrd
 # from config.conf import reportPath, casePath, baseUrl, hwUrl
 from selenium import webdriver
 
+from common.BeautifulReport import BeautifulReport
 from common.log import Logger
-from config.conf import baseUrl, casePath
+from config.conf import baseUrl, casePath, reportPath
 from config.doExcel import ReadExcel
-#from common.log import Logger
+#from common.report import Logger
 from pageObject.loginPage import LoginPage
 
 log = Logger(__name__)
@@ -51,7 +52,7 @@ class TestLogin(unittest.TestCase):
         # self.assertEqual(text, self.name)
 
         # print("打开了login页面")
-        # log.logger.info("   *** 登录测试用例：%s %s ***", userData["caseId"], userData["用例描述"])
+        # report.logger.info("   *** 登录测试用例：%s %s ***", userData["caseId"], userData["用例描述"])
         # self.login.loginFunc(userData["userId"], userData["password"])
         # sleep(1)
 
@@ -85,13 +86,13 @@ class TestLogin(unittest.TestCase):
             #     #         break
             #
             # except Exception as F:
-            #     log.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
-            #     log.logger.exception("登录测试用例：%s 成功进入首页，但未成功登录")
+            #     report.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
+            #     report.logger.exception("登录测试用例：%s 成功进入首页，但未成功登录")
             #     # failPic = "fail_" + userData["caseId"] + ".png"
             #     self.login.saveScreenShot(failPic)
             #     raise F
             # else:
-            #     log.logger.info(
+            #     report.logger.info(
             #         '登录测试用例 %s 测试用例通过！' % userData["caseId"])
             #     # passPic = "pass_" + userData["caseId"] + ".png"
             #     # self.login.saveScreenShot(passPic)
@@ -105,29 +106,31 @@ class TestLogin(unittest.TestCase):
                 self.assertIn(userData["expected"], message)
             except Exception as F:
                 print("登录测试用例：%s 登录失败，提示信息错误" % userData["caseId"])
-                # log.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
-                # log.logger.exception("登录测试用例：%s 登录失败，提示信息错误" % userData["caseId"])
+                # report.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
+                # report.logger.exception("登录测试用例：%s 登录失败，提示信息错误" % userData["caseId"])
                 # failPic = "fail_" + userData["caseId"] + ".png"
                 # self.login.saveScreenShot(failPic)
                 raise F
             else:
                 print('登录测试用例：%s 通过！' % userData["caseId"])
-                # log.logger.info('登录测试用例：%s 通过！' % userData["caseId"])
+                # report.logger.info('登录测试用例：%s 通过！' % userData["caseId"])
                 # passPic = "pass_" + userData["caseId"] + ".png"
                 # self.login.saveScreenShot(passPic)
         else:
             print('登录测试用例：%s 未通过！' % userData["caseId"])
-            # log.logger.error("网页地址发生错误")
-            # log.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
+            # report.logger.error("网页地址发生错误")
+            # report.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
             # failPic = "fail_" + userData["caseId"] + ".png"
             # self.login.saveScreenShot(failPic)
 
 
 if __name__ == '__main__':
     now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
-    # reportTitle = "登录功能测试报告" + now + ".html"
+
+    reportTitle = "登录系统功能测试报告" + now + ".html"
+    desc = "登录模块测试用例"
     # nowPath = os.path.join(reportPath, reportTitle)
-    caseName = "登录模块测试用例"
+    # caseName = "登录模块测试用例"
 
     # discover = unittest.defaultTestLoader.discover(casePath, pattern="testLogin.py", top_level_dir=None)
 
@@ -139,6 +142,8 @@ if __name__ == '__main__':
     suite = unittest.TestSuite()
     loader = unittest.TestLoader()
     suite.addTest(loader.loadTestsFromTestCase(TestLogin))
+    runner = BeautifulReport(suite)
+    runner.report(filename=reportTitle, description=desc, report_dir=reportPath)
 
     # fp = open(report_path + '-test_login_result.html', 'wb')
     # # 测试报告的标题与描述

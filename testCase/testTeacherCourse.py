@@ -14,7 +14,7 @@ from common.log import Logger
 from common.myUnit import MyUnittest, TeaUnittest
 from config.conf import baseUrl, casePath
 from config.doExcel import ReadExcel
-#from common.log import Logger
+#from common.report import Logger
 from pageObject.loginPage import LoginPage
 from selenium.webdriver.support import expected_conditions as EC
 

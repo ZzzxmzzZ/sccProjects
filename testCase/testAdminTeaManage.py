@@ -13,7 +13,7 @@ from common.log import Logger
 from common.myUnit import AdminUnittest
 from config.conf import baseUrl
 from config.doExcel import ReadExcel
-#from common.log import Logger
+#from common.report import Logger
 from pageObject.admin.adminTeaManagePage import AdminTeaManagePage
 from selenium.webdriver.support import expected_conditions as EC
 

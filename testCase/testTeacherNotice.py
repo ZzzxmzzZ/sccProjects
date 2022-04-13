@@ -14,7 +14,7 @@ from common.log import Logger
 from common.myUnit import TeaUnittest
 from config.conf import baseUrl, casePath, reportPath
 from config.doExcel import ReadExcel
-#from common.log import Logger
+#from common.report import Logger
 from selenium.webdriver.support import expected_conditions as EC
 
 from pageObject.teacher.teaNoticePage import TeaNoticePage

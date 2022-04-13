@@ -54,7 +54,7 @@ class AdminTeaManagePage(BasePage):
 
     # def action_click(self):
     #     temp = 1
-    #     # log = self._log
+    #     # report = self._log
     #     element = self.locator_element(*self.uploadFileEle)
     #     while temp < 5:
     #         try:
@@ -65,7 +65,7 @@ class AdminTeaManagePage(BasePage):
     #             sleep(0.5)
     #             temp += 1
     #             # traceback.print_exc()
-    #             log.logger.debug(traceback.print_exc())
+    #             report.logger.debug(traceback.print_exc())
     #         else:
     #             break
     #         # 尝试5次仍失败，则终止

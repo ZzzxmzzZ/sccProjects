@@ -42,7 +42,7 @@ dataPath = os.path.join(proPath,"testData")
 # 获取日志路径
 logPath = os.path.join(proPath,'log')
 # print(logPath)
-# D:\Software\PycharmProjects\sccProjects\log
+# D:\Software\PycharmProjects\sccProjects\report
 
 '''
 # 保存截图路径

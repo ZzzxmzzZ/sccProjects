@@ -52,7 +52,7 @@ class BasePage(object):
         #js = 'document.getElementsByClassName(\"ivu-select-dropdown\")[0].style.display="block";'
         self.executeScript(js)
         print("成功将隐藏元素回显")
-        # log.logger.info("成功将隐藏元素回显")
+        # report.logger.info("成功将隐藏元素回显")
     #
     #
     # #鼠标悬停导航

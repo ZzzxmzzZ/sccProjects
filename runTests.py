@@ -4,12 +4,13 @@ import unittest
 
 from common.BeautifulReport import BeautifulReport
 from common.log import Logger
-from testCase.oldtestLogin import TestLogin
+from config.conf import reportPath
+from testCase.testLogin import TestLogin
 
 log = Logger(__name__)
 def testFirst():
     now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
-    reportTitle = "作业管理系统功能测试报告" + now + ".html"
+    reportTitle = "登录系统功能测试报告" + now + ".html"
     desc = "登录测试用例"
 
     suite = unittest.TestSuite()

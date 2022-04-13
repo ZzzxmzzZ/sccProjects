@@ -11,7 +11,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from common.log import Logger
 from common.myUnit import AdminUnittest
-#from common.log import Logger
+#from common.report import Logger
 from pageObject.admin.adminSchoolTreePage import AdminSchoolTreePage
 from selenium.webdriver.support import expected_conditions as EC
 
