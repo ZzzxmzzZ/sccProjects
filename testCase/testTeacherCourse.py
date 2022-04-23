@@ -36,8 +36,7 @@ class TestTeacherCourse(TeaUnittest):
     @data(*courseData)
     def test_01_tea_createAction(self, courseData):
         '''创建课程测试用例'''
-        '''判断教师是否进入了课程创建页面'''
-
+        #判断教师是否进入了课程创建页面
         self.teaCourse = TeaCoursePage(self.driver)
         print("点击选课系统按钮")
         self.teaCourse.clickChooseCSBtn()
@@ -49,28 +48,87 @@ class TestTeacherCourse(TeaUnittest):
             message = self.teaCourse.createCoursePageText()
             try:
                 self.assertEqual(message, "创建课程")
+                log.logger.info('成功进入创建课程页面')
             except Exception as F:
-                print("登录测试用例：进入创建课程页面未通过！")
+                print("创建课程测试用例：进入创建课程页面未通过！")
+                log.logger.error('未成功进入创建课程页面')
                 raise F
             else:
-                print("登录测试用例进入创建课程页面成功！")
+                print("创建课程测试用例：进入创建课程页面成功！")
+                # 输入课程信息
+                self.teaCourse.createCourseInfo(courseData["courseName"], courseData["classroom"],
+                                                courseData["startweek"], courseData["endweek"], courseData["day"],
+                                                courseData["startsection"], courseData["endsection"],
+                                                courseData["number"], courseData["credits"], courseData["remarks"])
+                # 选择学院分支
+                self.teaCourse.academyChoose()
+                # 页面下滑以防定位不到元素
+                self.pageDown()
+                sleep(0.5)
+                # 点击【申请】按钮创建我课程
+                self.teaCourse.clickCreateCourseBtn()
+                sleep(0.8)
+                # 获取弹窗信息
+                message = self.teaCourse.alertInfo()
+                if message:
+                    try:
+                        # 判断是否与Excel文档中的预期结果一致
+                        self.assertIn(courseData["expected"], message)
+                    except Exception as F:
+                        print('创建课程测试用例：%s 未通过！' % courseData["caseId"])
+                        log.logger.exception("创建课程：%s 失败，弹窗信息不合预期" % courseData["caseId"])
+                        failScreenShot = "fail_" + courseData["caseId"] + ".png"
+                        self.teaCourse.screenShot(failScreenShot)
+                        raise F
+                    else:
+                        print('创建课程测试用例：%s 成功！' % courseData["caseId"])
+                        log.logger.info('创建课程：%s 通过！' % courseData["caseId"])
+                        successScreenShot = "pass_" + courseData["caseId"] + ".png"
+                        self.teaCourse.screenShot(successScreenShot)
+        else:
+            print('创建课程：%s 未通过！' % courseData["caseId"])
+            log.logger.error("创建课程跳转错误，请检查Url")
+            log.logger.info('创建课程测试用例：%s 未通过！' % courseData["caseId"])
+            times = time.strftime("%(asctime)s")
+            failScreenShot = "fail_" + times + courseData["caseId"] + ".png"
+            self.teaCourse.screenShot(failScreenShot)
 
-        '''创建课程测试用例'''
-        self.teaCourse.createCourseInfo(courseData["courseName"], courseData["classroom"], courseData["startweek"], courseData["endweek"], courseData["day"], courseData["startsection"], courseData["endsection"], courseData["number"], courseData["credits"], courseData["remarks"])
-        self.teaCourse.academyChoose()
-        self.pageDown()
-        sleep(0.5)
-        self.teaCourse.clickCreateCourseBtn()
-        sleep(0.8)
-        message = self.teaCourse.alertInfo()
-        if message:
-            try:
-                self.assertIn(courseData["expected"], message)
-            except Exception as F:
-                print('登录测试用例：%s 未通过！' % courseData["caseId"])
-                raise F
-            else:
-                print('登录测试用例：%s 成功！' % courseData["caseId"])
+
+
+        # else:
+        #     print('创建课程：%s 未通过！' % courseData["caseId"])
+        #     log.logger.error("创建课程跳转错误，请检查Url")
+        #     log.logger.info('创建课程测试用例：%s 未通过！' % courseData["caseId"])
+        #     times = time.strftime("%(asctime)s")
+        #     failScreenShot = "fail_" + times + courseData["caseId"] + ".png"
+        #     self.teaCourse.screenShot(failScreenShot)
+        # #输入课程信息
+        # self.teaCourse.createCourseInfo(courseData["courseName"], courseData["classroom"], courseData["startweek"], courseData["endweek"], courseData["day"], courseData["startsection"], courseData["endsection"], courseData["number"], courseData["credits"], courseData["remarks"])
+        # #选择学院分支
+        # self.teaCourse.academyChoose()
+        # #页面下滑以防定位不到元素
+        # self.pageDown()
+        # sleep(0.5)
+        # #点击【申请】按钮创建我课程
+        # self.teaCourse.clickCreateCourseBtn()
+        # sleep(0.8)
+        # #获取弹窗信息
+        # message = self.teaCourse.alertInfo()
+        # if message:
+        #     try:
+        #         #判断是否与Excel文档中的预期结果一致
+        #         self.assertIn(courseData["expected"], message)
+        #     except Exception as F:
+        #         print('创建课程测试用例：%s 未通过！' % courseData["caseId"])
+        #         log.logger.exception("创建课程：%s 失败，弹窗信息不合预期" % courseData["caseId"])
+        #         failScreenShot = "fail_" + courseData["caseId"] + ".png"
+        #         self.teaCourse.screenShot(failScreenShot)
+        #         raise F
+        #     else:
+        #         print('创建课程测试用例：%s 成功！' % courseData["caseId"])
+        #         log.logger.info('创建课程：%s 通过！' % courseData["caseId"])
+        #         successScreenShot = "pass_" + courseData["caseId"] + ".png"
+        #         self.teaCourse.screenShot(successScreenShot)
 
 
     def test_02_teacher_searchCourse(self):

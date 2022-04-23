@@ -1,8 +1,11 @@
 #coding:utf-8
+import os
+import time
+
 from selenium import webdriver
 from time import sleep
 from common.log import Logger
-from config.conf import baseUrl
+from config.conf import baseUrl, conf, proPath
 
 log = Logger(__name__)
 testUrl = baseUrl + "login"
@@ -33,6 +36,14 @@ class BasePage(object):
     def getUrl(self):
         currUrl = self.driver.current_url  # 获取当前的url地址
         return currUrl
+
+    #截图
+    def screenShot(self,fileName):
+        # timeAndName = now + fileName
+        path = os.path.join(r'D:\Software\PycharmProjects\sccProjects\img', fileName)
+        self.driver.get_screenshot_as_file(path)
+
+
 
     #页面下滑
     def pageDown(self):

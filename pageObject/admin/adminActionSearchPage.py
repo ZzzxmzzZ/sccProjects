@@ -82,6 +82,7 @@ class AdminActionSearchPage(BasePage):
     #从数据库中获取数据
     def getActionNameFromSql(self):
         sql = "select activity_name from sys_activities where activity_name like '%学%';"
+        # sql = "select activity_name from sys_activities where activity_name like '%s'" % selectName
         res = Mysql().sql(sql)
         print("数据库：",res)
         # 数据库： (('jvm原理',), ('Java EE',))

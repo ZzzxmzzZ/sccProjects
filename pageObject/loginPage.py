@@ -114,11 +114,6 @@ class LoginPage(BasePage):
         self.isLoginSucceed()
 
 
-
-    def teaLogin(self,userId='2013007', password='0',userName='敖欣'):
-        self.loginFunc(userId, password)
-        self.isUserNameInWelcomeText(userName)
-
     def mock_stuLogin(self, userId='201741414235', pwd ='123456'):
         self.open()
         self.loginFunc(userId, pwd)

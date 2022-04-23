@@ -5,9 +5,6 @@ from time import sleep
 from ddt import ddt, data
 import xlrd
 
-# from common.HTMLTestRunner import HTMLTestRunner
-#from common.myUnit import MyUnittest
-# from config.conf import reportPath, casePath, baseUrl, hwUrl
 from selenium import webdriver
 
 from common.BeautifulReport import BeautifulReport
@@ -18,9 +15,9 @@ from config.doExcel import ReadExcel
 from pageObject.loginPage import LoginPage
 
 log = Logger(__name__)
-testLoginData = ReadExcel('elementDate.xlsx', 'loginData')  # 登录模块测试数据
+# 读取登录模块测试数据
+testLoginData = ReadExcel('elementDate.xlsx', 'loginData')
 userData = testLoginData.readData()
-
 login_path = baseUrl + "login"
 homeUrl = baseUrl + "index"
 
@@ -36,92 +33,55 @@ class TestLogin(unittest.TestCase):
         self.sp.quit()
     @data(*userData)
     def test_login(self, userData):
-
         """登录模块测试用例"""
-
-        # self.login.open(login_path)
-
         self.sp = LoginPage(self.driver, login_path)
         self.sp.open()
         self.sp.loginFunc(userData["userId"], userData["password"])
-        # 获取系统定位元素的关键字
-        # message = self.sp.assert_by_text()
-        #
-        # print("message:", message)
-        # self.name = str(self.name)
-        # self.assertEqual(text, self.name)
-
-        # print("打开了login页面")
-        # report.logger.info("   *** 登录测试用例：%s %s ***", userData["caseId"], userData["用例描述"])
-        # self.login.loginFunc(userData["userId"], userData["password"])
-        # sleep(1)
-
         if self.sp.getUrl() == homeUrl:
-            # message = self.login.getWelcomeText()
             message = self.sp.assert_by_text()
             print("message:", message)
             try:
                 self.assertIn(userData["expected"], message)
             except Exception as F:
-                print('登录测试用例：%s 未通过！' % userData["caseId"])
+                print('登录：%s 未通过！' % userData["caseId"])
+                log.logger.error('登录：%s 未通过！，首页信息不符合预期' % userData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + userData["caseId"] + ".png"
+                self.sp.screenShot(failScreenShot)
                 raise F
             else:
-                print('登录测试用例：%s 成功！' % userData["caseId"])
-
-            # try:
-            #     result = self.assertIn(userData["expected"], message)
-            #     print("结果：result=", result)
-            #     # # 第一步同样要定位到select框
-            #     # self.login.clickXialaBtn()
-            #     # time.sleep(2)
-            #     # 第二步通过xpath定位到要点击的list集合
-            #     # options = driver.find_elements_by_xpath("//ul[@class='list-test']/li")
-            #     # self.login.clickTuichuBtn()
-            #     # time.sleep(1)
-            #     # self.login.queding()
-            #     # 第三步通过for循环找到要点击的具体选项
-            #     # for li in options:
-            #     #     if "autotest" in li.text:  # 这里用text属性寻找，也可选id或class
-            #     #         i.click()
-            #     #         break
-            #
-            # except Exception as F:
-            #     report.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
-            #     report.logger.exception("登录测试用例：%s 成功进入首页，但未成功登录")
-            #     # failPic = "fail_" + userData["caseId"] + ".png"
-            #     self.login.saveScreenShot(failPic)
-            #     raise F
-            # else:
-            #     report.logger.info(
-            #         '登录测试用例 %s 测试用例通过！' % userData["caseId"])
-            #     # passPic = "pass_" + userData["caseId"] + ".png"
-            #     # self.login.saveScreenShot(passPic)
+                log.logger.info('登录：%s 通过！' % userData["caseId"])
+                print('登录：%s 成功！' % userData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + userData["caseId"] + ".png"
+                self.sp.screenShot(successScreenShot)
 
         elif self.sp.getUrl() == login_path:
             # 判断登陆失败
             message = self.sp.getFailedText()
-            print("登录失败提示信息：", message)
             try:
-                # self.assertEqual(text, userData["expected"])
                 self.assertIn(userData["expected"], message)
             except Exception as F:
-                print("登录测试用例：%s 登录失败，提示信息错误" % userData["caseId"])
-                # report.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
-                # report.logger.exception("登录测试用例：%s 登录失败，提示信息错误" % userData["caseId"])
-                # failPic = "fail_" + userData["caseId"] + ".png"
-                # self.login.saveScreenShot(failPic)
+                print("登录：%s 登录失败，提示信息不合预期" % userData["caseId"])
+                log.logger.info('登录：%s 未通过！' % userData["caseId"])
+                log.logger.exception("登录：%s 登录失败，提示信息不合预期" % userData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + userData["caseId"] + ".png"
+                self.sp.screenShot(failScreenShot)
                 raise F
             else:
-                print('登录测试用例：%s 通过！' % userData["caseId"])
-                # report.logger.info('登录测试用例：%s 通过！' % userData["caseId"])
-                # passPic = "pass_" + userData["caseId"] + ".png"
-                # self.login.saveScreenShot(passPic)
+                print('登录：%s 通过！' % userData["caseId"])
+                log.logger.info('登录：%s 通过！' % userData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + userData["caseId"] + ".png"
+                self.sp.screenShot(successScreenShot)
         else:
-            print('登录测试用例：%s 未通过！' % userData["caseId"])
-            # report.logger.error("网页地址发生错误")
-            # report.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
-            # failPic = "fail_" + userData["caseId"] + ".png"
-            # self.login.saveScreenShot(failPic)
+            print('登录：%s 未通过！' % userData["caseId"])
+            log.logger.error("登录跳转错误，请检查Url")
+            log.logger.info('登录测试用例：%s 未通过！' % userData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + userData["caseId"] + ".png"
+            self.sp.screenShot(failScreenShot)
 
 
 if __name__ == '__main__':

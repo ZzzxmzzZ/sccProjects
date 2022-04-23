@@ -45,10 +45,15 @@ class TestAdminAction(AdminUnittest):
             try:
                 self.assertEqual(message, "创建活动")
             except Exception as F:
-                print("登录测试用例：进入创建活动页面未通过！")
+                print("创建活动测试用例：进入创建活动页面失败！")
+                log.logger.error('创建活动：%s 未通过！未进入创建活动页面' % actionData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + actionData["caseId"] + ".png"
+                self.adminAction.screenShot(failScreenShot)
                 raise F
             else:
-                print("登录测试用例进入创建活动页面成功！")
+                log.logger.info('创建活动：%s 成功进入创建活动页面！' % actionData["caseId"])
+                print("创建活动：测试用例进入创建活动页面成功！")
 
         '''创建活动测试用例'''
         self.adminAction.createActionInfo(actionData["actionName"], actionData["classroom"], actionData["startTime"], actionData["endTime"], actionData["chooseTime"], actionData["number"], actionData["credit"], actionData["remarks"])
@@ -60,11 +65,20 @@ class TestAdminAction(AdminUnittest):
             try:
                 self.assertIn(actionData["expected"], message)
             except Exception as F:
-                print('登录测试用例：%s 未通过！' % actionData["caseId"])
+                print('创建活动：%s 创建活动失败！' % actionData["caseId"])
+                log.logger.error('创建活动：%s 创建活动失败！' % actionData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + actionData["caseId"] + ".png"
+                self.adminAction.screenShot(failScreenShot)
                 raise F
             else:
-                print('登录测试用例：%s 成功！' % actionData["caseId"])
+                log.logger.info('创建活动：%s 通过！' % actionData["caseId"])
+                print("创建活动：测试用例创建活动成功！")
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + actionData["caseId"] + ".png"
+                self.adminAction.screenShot(successScreenShot)
 
+class TestAdminSearchAction(AdminUnittest):
     def test_02_admin_searchAction(self):
         '''查询课程测试用例'''
         '''判断管理员是否进入了查询活动页面'''
@@ -81,10 +95,18 @@ class TestAdminAction(AdminUnittest):
             try:
                 self.assertEqual("活动·历史记录", message)
             except Exception as F:
-                print("登录测试用例：进入查询活动页面未通过！")
+                print("查询活动：进入查询活动页面失败！")
+                log.logger.error('查询活动：%s 进入查询活动页面失败！' % actionData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + actionData["caseId"] + ".png"
+                self.adminSearchAction.screenShot(failScreenShot)
                 raise F
             else:
-                print("登录测试用例进入查询活动页面成功！")
+                log.logger.info('查询活动：成功进入创建活动页面！')
+                print("查询活动：测试用例进入查询活动页面成功！")
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + "searchActionTest-01" + ".png"
+                self.adminSearchAction.screenShot(successScreenShot)
         sleep(1)
         self.adminSearchAction.getActionNameFromSql()
         # beforeSearch = self.adminSearchCourse.beforeSearchCourseList()
@@ -101,10 +123,18 @@ class TestAdminAction(AdminUnittest):
             self.adminSearchAction.isSearchCorrect() == True
 
         except Exception as F:
-            print("登录测试用例：查询功能异常！")
+            print("查询活动测试用例：查询功能异常！")
+            log.logger.error('查询活动：searchActionTest-01 查询功能异常！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + "searchActionTest-01" + ".png"
+            self.adminSearchAction.screenShot(failScreenShot)
             raise F
         else:
             print("查询活动成功！")
+            log.logger.info('查询活动：searchActionTest-01 通过！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            successScreenShot = "pass_" + times + "_" + "searchActionTest-01" + ".png"
+            self.adminSearchAction.screenShot(successScreenShot)
 
 
 

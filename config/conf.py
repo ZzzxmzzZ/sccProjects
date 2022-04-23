@@ -44,14 +44,14 @@ logPath = os.path.join(proPath,'log')
 # print(logPath)
 # D:\Software\PycharmProjects\sccProjects\report
 
-'''
+
 # 保存截图路径
 # 错误截图
 failImagePath = os.path.join(proPath, 'report', 'image','fail')
 # 成功截图
 passImagePath = os.path.join(proPath, 'report', 'image','pass')
 
-'''
+
 
 #获取测试报告路径
 reportPath = os.path.join(proPath,'report')

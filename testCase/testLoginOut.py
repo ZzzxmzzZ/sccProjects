@@ -9,9 +9,10 @@ from ddt import ddt, data
 # from config.conf import reportPath, casePath, baseUrl, hwUrl
 from selenium.webdriver.support.wait import WebDriverWait
 
+from common.BeautifulReport import BeautifulReport
 from common.log import Logger
 from common.myUnit import AdminUnittest, TeaUnittest, StuUnittest
-from config.conf import baseUrl
+from config.conf import baseUrl, reportPath
 from config.doExcel import ReadExcel
 #from common.report import Logger
 from pageObject.admin.adminNoticePage import AdminNoticePage
@@ -187,10 +188,10 @@ class TestStuLoginOut(StuUnittest):
 
 
 if __name__ == '__main__':
-    now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+    # now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
     # reportTitle = "登录功能测试报告" + now + ".html"
     # nowPath = os.path.join(reportPath, reportTitle)
-    caseName = "创建课程模块测试用例"
+    #caseName = "创建课程模块测试用例"
 
     # discover = unittest.defaultTestLoader.discover(casePath, pattern="testLogin.py", top_level_dir=None)
 
@@ -199,13 +200,20 @@ if __name__ == '__main__':
     # runner = BeautifulReport(suite)
     # runner.report(filename=reportTitle,description=caseName,report_dir=reportPath)
     #unittest.main()
-    suite = unittest.TestSuite()
-    loader = unittest.TestLoader()
-    suite.addTest(loader.loadTestsFromTestCase(TestAdminLoginOut))
+    # suite = unittest.TestSuite()
+    # loader = unittest.TestLoader()
+    # suite.addTest(loader.loadTestsFromTestCase(TestAdminLoginOut))
 
-    # fp = open(report_path + '-test_login_result.html', 'wb')
-    # # 测试报告的标题与描述
-    # runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='登录功能测试报告:',
-    #                                        description='脚脚本从用例表读取要登录的用户数，然后执行相应次数的登录操作，'
-    #                                                    '根据登陆后页面的用户名进行断言，把结果记录在用例表中')
-    # runner.run(suite)
+    now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+    reportTitle = "退出登录功能测试报告" + now + ".html"
+    desc = "退出测试用例"
+
+    suite = unittest.TestSuite()
+    lorder1 = unittest.TestLoader().loadTestsFromTestCase(TestAdminLoginOut)
+    lorder2 = unittest.TestLoader().loadTestsFromTestCase(TestTeaLoginOut)
+    lorder3 = unittest.TestLoader().loadTestsFromTestCase(TestStuLoginOut)
+    suite.addTest(lorder1)
+    suite.addTest(lorder2)
+    suite.addTest(lorder3)
+    runner = BeautifulReport(suite)
+    runner.report(filename=reportTitle, description=desc, report_dir=reportPath)
