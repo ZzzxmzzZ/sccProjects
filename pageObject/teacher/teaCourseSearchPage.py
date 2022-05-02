@@ -48,7 +48,7 @@ class TeaCourseSearchPage(BasePage):
 
     #查询课程名关键字
     def searchCourseNameKeyword(self):
-        inputValue = "j"
+        inputValue = "查询"
         self.locator_element(*self.keyCourseNameEle).send_keys(inputValue)
         print("输入成功")
         # return inputValue
@@ -81,14 +81,14 @@ class TeaCourseSearchPage(BasePage):
 
     #从数据库中获取数据
     def getCourseNameFromSql(self):
-        sql = "select course_name from sys_course where course_name like '%j%' and course_name like '%J%';"
+        sql = "select course_name from sys_course where course_name like '%查询%';"
         res = Mysql().sql(sql)
         print("数据库：",res)
         # 数据库： (('jvm原理',), ('Java EE',))
         print("元组1：",res[0][0])
         # 元组1： jvm原理
-        print("元组2：", res[1][0])
-        # 元组2： Java EE
+        # print("元组2：", res[1][0])
+        # # 元组2： Java EE
         print("数据库中返回值的长度：",len(res))
         return len(res)
 
@@ -98,7 +98,7 @@ class TeaCourseSearchPage(BasePage):
         pax = []
         att = []
         number = 0
-        inputValue = "j"
+        inputValue = "查询"
         print("查询后行数：")
 
         # 定位到table，并获得table中所有得tr元素
@@ -157,16 +157,6 @@ class TeaCourseSearchPage(BasePage):
         #     self.driver.find_elements_by_xpath('//*[@id="mytab"]/tbody/tr/td[3]')[0].text
         #     courseInfo_list.append(course_names)  # 遍历一次，就加入数组中
         # print(courseInfo_list)  # 打印出遍历完成的数组
-
-
-
-
-
-
-    def academyChoose(self):
-        self.locator_element(*self.academyEle).click()
-        sleep(0.5)
-        self.locator_element(*self.fenzhiEle).click()
 
 
 

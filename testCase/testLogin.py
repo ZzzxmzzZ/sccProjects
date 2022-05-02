@@ -9,7 +9,7 @@ from selenium import webdriver
 
 from common.BeautifulReport import BeautifulReport
 from common.log import Logger
-from config.conf import baseUrl, casePath, reportPath
+from config.conf import baseUrl, reportPath
 from config.doExcel import ReadExcel
 #from common.report import Logger
 from pageObject.loginPage import LoginPage

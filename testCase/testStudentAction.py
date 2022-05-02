@@ -35,7 +35,7 @@ class TestStudentAction(StuUnittest):
 
     def test_01_student_searchAction(self):
         '''查询课程测试用例'''
-        '''判断管理员是否进入了查询课程页面'''
+        '''判断学生是否进入了查询课程页面'''
 
         self.stuSearchAction = StudentActionSearchPage(self.driver)
         print("点击选课系统按钮")
@@ -49,10 +49,18 @@ class TestStudentAction(StuUnittest):
             try:
                 self.assertEqual("活动·历史记录", message)
             except Exception as F:
-                print("登录测试用例：进入查询活动页面未通过！")
+                print("查询活动：进入查询活动页面失败！")
+                log.logger.error('查询活动：进入查询活动页面失败！')
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + "searchActionTest-01" + ".png"
+                self.stuSearchAction.screenShot(failScreenShot)
                 raise F
             else:
-                print("登录测试用例进入查询活动页面成功！")
+                log.logger.info('查询活动：成功进入创建活动页面！')
+                print("查询活动：测试用例进入查询活动页面成功！")
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + "searchActionTest-01" + ".png"
+                self.stuSearchAction.screenShot(successScreenShot)
         sleep(1)
         self.stuSearchAction.getActionNameFromSql()
         # beforeSearch = self.adminSearchCourse.beforeSearchCourseList()
@@ -69,10 +77,18 @@ class TestStudentAction(StuUnittest):
             self.stuSearchAction.isSearchCorrect() == True
 
         except Exception as F:
-            print("登录测试用例：查询功能异常！")
+            print("查询活动测试用例：查询功能异常！")
+            log.logger.error('查询活动：searchActionTest-01 查询功能异常！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + "searchActionTest-01" + ".png"
+            self.stuSearchAction.screenShot(failScreenShot)
             raise F
         else:
             print("查询活动成功！")
+            log.logger.info('查询活动：searchActionTest-01 通过！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            successScreenShot = "pass_" + times + "_" + "searchActionTest-01" + ".png"
+            self.stuSearchAction.screenShot(successScreenShot)
 
 
 if __name__ == '__main__':

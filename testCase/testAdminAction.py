@@ -80,7 +80,7 @@ class TestAdminAction(AdminUnittest):
 
 class TestAdminSearchAction(AdminUnittest):
     def test_02_admin_searchAction(self):
-        '''查询课程测试用例'''
+        '''查询活动测试用例'''
         '''判断管理员是否进入了查询活动页面'''
 
         self.adminSearchAction = AdminActionSearchPage(self.driver)
@@ -96,9 +96,9 @@ class TestAdminSearchAction(AdminUnittest):
                 self.assertEqual("活动·历史记录", message)
             except Exception as F:
                 print("查询活动：进入查询活动页面失败！")
-                log.logger.error('查询活动：%s 进入查询活动页面失败！' % actionData["caseId"])
+                log.logger.error('查询活动：进入查询活动页面失败！')
                 times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
-                failScreenShot = "fail_" + times + "_" + actionData["caseId"] + ".png"
+                failScreenShot = "fail_" + times + "_" + "searchActionTest-01" + ".png"
                 self.adminSearchAction.screenShot(failScreenShot)
                 raise F
             else:

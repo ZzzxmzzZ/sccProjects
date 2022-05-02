@@ -25,7 +25,7 @@ homeUrl = baseUrl + "index"
 
 
 @ddt
-class TestTeaAction(TeaUnittest):
+class TestTeaCreateAction(TeaUnittest):
 
     @data(*actionData)
     def test_01_teacher_createAction(self, actionData):
@@ -44,10 +44,15 @@ class TestTeaAction(TeaUnittest):
             try:
                 self.assertEqual(message, "创建活动")
             except Exception as F:
-                print("登录测试用例：进入创建活动页面未通过！")
+                print("创建活动测试用例：进入创建活动页面失败！")
+                log.logger.error('创建活动：%s 未通过！未进入创建活动页面' % actionData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + actionData["caseId"] + ".png"
+                self.teacherAction.screenShot(failScreenShot)
                 raise F
             else:
-                print("登录测试用例进入创建活动页面成功！")
+                log.logger.info('创建活动：%s 成功进入创建活动页面！' % actionData["caseId"])
+                print("创建活动：测试用例进入创建活动页面成功！")
 
         '''创建活动测试用例'''
         self.teacherAction.createActionInfo(actionData["actionName"], actionData["classroom"], actionData["startTime"], actionData["endTime"], actionData["chooseTime"], actionData["number"], actionData["credit"], actionData["remarks"])
@@ -59,15 +64,23 @@ class TestTeaAction(TeaUnittest):
             try:
                 self.assertIn(actionData["expected"], message)
             except Exception as F:
-                print('登录测试用例：%s 未通过！' % actionData["caseId"])
+                print('创建活动：%s 创建活动失败！' % actionData["caseId"])
+                log.logger.error('创建活动：%s 创建活动失败！' % actionData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + actionData["caseId"] + ".png"
+                self.teacherAction.screenShot(failScreenShot)
                 raise F
             else:
-                print('登录测试用例：%s 成功！' % actionData["caseId"])
+                log.logger.info('创建活动：%s 通过！' % actionData["caseId"])
+                print("创建活动：测试用例创建活动成功！")
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + actionData["caseId"] + ".png"
+                self.teacherAction.screenShot(successScreenShot)
 
-
+class TestTeaSearchAction(TeaUnittest):
     def test_02_admin_searchAction(self):
-        '''查询课程测试用例'''
-        '''判断管理员是否进入了查询课程页面'''
+        '''查询活动测试用例'''
+        '''判断教师是否进入了查询课程页面'''
 
         self.teacherSearchAction = TeaActionSearchPage(self.driver)
         print("点击选课系统按钮")
@@ -81,10 +94,18 @@ class TestTeaAction(TeaUnittest):
             try:
                 self.assertEqual("活动·历史记录", message)
             except Exception as F:
-                print("登录测试用例：进入查询活动页面未通过！")
+                print("查询活动：进入查询活动页面失败！")
+                log.logger.error('查询活动：进入查询活动页面失败！')
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + "searchActionTest-01" + ".png"
+                self.teacherSearchAction.screenShot(failScreenShot)
                 raise F
             else:
-                print("登录测试用例进入查询活动页面成功！")
+                log.logger.info('查询活动：成功进入创建活动页面！')
+                print("查询活动：测试用例进入查询活动页面成功！")
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + "searchActionTest-01" + ".png"
+                self.teacherSearchAction.screenShot(successScreenShot)
         sleep(1)
         self.teacherSearchAction.getActionNameFromSql()
         # beforeSearch = self.adminSearchCourse.beforeSearchCourseList()
@@ -101,10 +122,18 @@ class TestTeaAction(TeaUnittest):
             self.teacherSearchAction.isSearchCorrect() == True
 
         except Exception as F:
-            print("登录测试用例：查询功能异常！")
+            print("查询活动测试用例：查询功能异常！")
+            log.logger.error('查询活动：searchActionTest-01 查询功能异常！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + "searchActionTest-01" + ".png"
+            self.teacherSearchAction.screenShot(failScreenShot)
             raise F
         else:
             print("查询活动成功！")
+            log.logger.info('查询活动：searchActionTest-01 通过！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            successScreenShot = "pass_" + times + "_" + "searchActionTest-01" + ".png"
+            self.teacherSearchAction.screenShot(successScreenShot)
 
 
 if __name__ == '__main__':
@@ -122,7 +151,7 @@ if __name__ == '__main__':
     #unittest.main()
     suite = unittest.TestSuite()
     loader = unittest.TestLoader()
-    suite.addTest(loader.loadTestsFromTestCase(TestTeaAction))
+    suite.addTest(loader.loadTestsFromTestCase(TestTeaSearchAction))
 
     # fp = open(report_path + '-test_login_result.html', 'wb')
     # # 测试报告的标题与描述

@@ -87,8 +87,8 @@ class StudentActionSearchPage(BasePage):
         # 数据库： (('jvm原理',), ('Java EE',))
         print("元组1：",res[0][0])
         # 元组1： jvm原理
-        print("元组2：", res[1][0])
-        # 元组2： Java EE
+        # print("元组2：", res[1][0])
+        # # 元组2： Java EE
         print("数据库中返回值的长度：",len(res))
         return len(res)
 

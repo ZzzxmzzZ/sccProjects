@@ -48,10 +48,18 @@ class TestStudentCourse(StuUnittest):
             try:
                 self.assertEqual("课程·历史记录", message)
             except Exception as F:
-                print("登录测试用例：进入查询课程页面未通过！")
+                print("查询课程：进入查询课程页面失败！")
+                log.logger.error('查询课程： 进入查询课程页面失败！')
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + "searchCourseTest-01" + ".png"
+                self.stuSearchCourse.screenShot(failScreenShot)
                 raise F
             else:
-                print("登录测试用例进入查询课程页面成功！")
+                log.logger.info('查询课程：成功进入创建课程页面！')
+                print("查询课程：测试用例进入查询课程页面成功！")
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                successScreenShot = "pass_" + times + "_" + "searchCourseTest-01" + ".png"
+                self.stuSearchCourse.screenShot(successScreenShot)
         sleep(1)
         self.stuSearchCourse.getCourseNameFromSql()
         # beforeSearch = self.adminSearchCourse.beforeSearchCourseList()
@@ -68,10 +76,18 @@ class TestStudentCourse(StuUnittest):
             self.stuSearchCourse.isSearchCorrect() == True
 
         except Exception as F:
-            print("登录测试用例：查询功能异常！")
+            print("查询课程测试用例：查询功能异常！")
+            log.logger.error('查询课程：searchCourseTest-01 查询功能异常！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + "searchCourseTest-01" + ".png"
+            self.stuSearchCourse.screenShot(failScreenShot)
             raise F
         else:
             print("查询课程成功！")
+            log.logger.info('查询课程：searchCourseTest-01 通过！')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            successScreenShot = "pass_" + times + "_" + "searchCourseTest-01" + ".png"
+            self.stuSearchCourse.screenShot(successScreenShot)
 
 
 if __name__ == '__main__':
