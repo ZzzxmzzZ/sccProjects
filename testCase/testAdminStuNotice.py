@@ -38,6 +38,7 @@ class TestAdminStuNotice(AdminUnittest):
 
     @data(*noticeData)
     def test_01_admin_createNoticeToStudent(self, noticeData):
+        '''管理员向学生发布公告'''
         '''判断管理员是否进入了发布公告页面'''
 
         self.adminNotice = AdminNoticePage(self.driver)
@@ -51,10 +52,16 @@ class TestAdminStuNotice(AdminUnittest):
         try:
             self.assertIn("公告通知", message)
         except Exception as F:
-            print("登录测试用例：进入发布公告页面未通过！")
+            print("管理员向学生发布公告测试用例：进入发布公告页面未通过！")
+            log.logger.error('发布公告：%s 未通过！未进入发布公告页面' % noticeData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+            self.adminNotice.screenShot(failScreenShot)
+            self.adminNotice.clickStuClose()
             raise F
         else:
-            print("登录测试用例进入发布公告页面成功！")
+            log.logger.info('发布公告：%s 成功进入发布公告页面！' % noticeData["caseId"])
+            print("发布公告：测试用例发布公告成功！")
 
         self.adminNotice.clickSendNoticeToStuBtn()
         print("点击向学生发布公告成功")
@@ -64,17 +71,23 @@ class TestAdminStuNotice(AdminUnittest):
         try:
             self.assertEqual("To 学生", toStuText)
         except Exception as F:
-            print("登录测试用例：进入向学生发布公告小窗未通过！")
+            print("管理员向学生发布公告测试用例：进入向学生发布公告小窗未通过！")
+            log.logger.error('发布公告：%s 未通过！进入向学生发布公告小窗失败' % noticeData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+            self.adminNotice.screenShot(failScreenShot)
+            self.adminNotice.clickStuClose()
             raise F
         else:
-            print("登录测试用例进入向学生发布公告小窗成功！")
+            log.logger.info('管理员向学生发布公告：%s 成功进入对应发布公告小窗！' % noticeData["caseId"])
+            print("管理员向学生发布公告测试用例进入向学生发布公告小窗成功！")
 
         '''创建公告测试用例'''
         self.adminNotice.sendStuNoticeInfo(noticeData["title"], noticeData["content"])
         self.adminNotice.clickStuTreeBtn()
         self.adminNotice.pageDown()
         sleep(0.8)
-        self.adminNotice.clickSureSendTeaNoticeBtn()
+        self.adminNotice.clickSureSendStuNoticeBtn()
         sleep(0.8)
         message = self.adminNotice.alertInfo()
         print("message:",message)
@@ -82,9 +95,14 @@ class TestAdminStuNotice(AdminUnittest):
         if message:
             try:
                 # self.assertIn(noticeData["expected"], message)
-                self.assertIn("计算机科学与技术学院", message)
+                self.assertIn("东莞理工学院", message)
             except Exception as F:
-                print('学院选择失败！')
+                print("管理员向学生发布公告测试用例：学院选择失败！")
+                log.logger.error('管理员向学生发布公告测试用例：%s 未通过！学院选择失败！' % noticeData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+                self.adminNotice.screenShot(failScreenShot)
+                self.adminNotice.clickStuClose()
                 raise F
             else:
                 print('学院选择成功！')
@@ -100,9 +118,16 @@ class TestAdminStuNotice(AdminUnittest):
                         self.assertIn("发布成功", sendNoticeText)
                     except Exception as F:
                         print('发布失败！')
+                        log.logger.error('管理员向学生发布公告测试用例：%s 未通过！发布失败！' % noticeData["caseId"])
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+                        self.adminNotice.screenShot(failScreenShot)
+                        self.adminNotice.clickStuClose()
                         raise F
                     else:
+                        log.logger.info('管理员向学生发布公告：%s 发布成功！' % noticeData["caseId"])
                         print('发布公告成功！')
+                        self.adminNotice.clickStuClose()
 
 
 

@@ -24,9 +24,10 @@ log = Logger(__name__)
 
 
 @ddt
-class TestAdminSchoolTree(AdminUnittest):
+class TestAdminAddSchoolTree(AdminUnittest):
 
     def test_01_admin_add_schoolTree(self):
+        '''管理员增加学院机构分支'''
         '''判断管理员是否进入了学院机构页面'''
         '''这里的login是myunittest.py中定义的login = LoginPage()中的login'''
         self.adminSchoolTree = AdminSchoolTreePage(self.driver)
@@ -81,7 +82,9 @@ class TestAdminSchoolTree(AdminUnittest):
                     else:
                         print('添加分支成功！')
 
+class TestAdminDeleteSchoolTree(AdminUnittest):
     def test_02_admin_delete_schoolTree(self):
+        '''管理员删除学院机构分支'''
         '''判断管理员是否进入了学院机构页面'''
         '''这里的login是myunittest.py中定义的login = LoginPage()中的login'''
         self.adminSchoolTree = AdminSchoolTreePage(self.driver)
@@ -124,14 +127,18 @@ class TestAdminSchoolTree(AdminUnittest):
                 if message:
                     try:
                         # self.assertIn(noticeData["expected"], message)
-                        self.assertEqual("删除成功", deleteBranchText)
+                        if "成功" in deleteBranchText:
+                            self.assertEqual("删除成功", deleteBranchText)
+                        else:
+                            self.assertEqual("该目录下面还有子目录，请从最底层目录开始删除!", deleteBranchText)
                     except Exception as F:
                         print('删除分支失败！')
                         raise F
                     else:
                         print('删除分支成功！')
-
+class TestAdminRenameSchoolTree(AdminUnittest):
     def test_03_admin_rename_schoolTree(self):
+        '''管理员重命名学院机构分支'''
         '''判断管理员是否进入了学院机构页面'''
         '''这里的login是myunittest.py中定义的login = LoginPage()中的login'''
         self.adminSchoolTree = AdminSchoolTreePage(self.driver)

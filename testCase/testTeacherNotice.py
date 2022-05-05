@@ -38,6 +38,7 @@ class TestTeacherNotice(TeaUnittest):
 
     @data(*noticeData)
     def test_01_teacher_createNotice(self, noticeData):
+        '''教师向学生发布公告'''
         '''判断教师是否进入了发布公告页面'''
 
         self.teacherNotice = TeaNoticePage(self.driver)
@@ -51,10 +52,16 @@ class TestTeacherNotice(TeaUnittest):
         try:
             self.assertIn("公告通知", message)
         except Exception as F:
-            print("登录测试用例：进入发布公告页面未通过！")
+            print("教师向学生发布公告测试用例：进入发布公告页面未通过！")
+            log.logger.error('发布公告：%s 未通过！未进入发布公告页面' % noticeData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+            self.teacherNotice.screenShot(failScreenShot)
+            self.teacherNotice.clickStuClose()
             raise F
         else:
-            print("登录测试用例进入发布公告页面成功！")
+            log.logger.info('发布公告：%s 成功进入发布公告页面！' % noticeData["caseId"])
+            print("发布公告：测试用例发布公告成功！")
 
         self.teacherNotice.clickSendNoticeToStuBtn()
         print("点击向教师发布公告成功")
@@ -64,10 +71,16 @@ class TestTeacherNotice(TeaUnittest):
         try:
             self.assertEqual("To 学生", toTeaText)
         except Exception as F:
-            print("登录测试用例：进入向教师发布公告小窗未通过！")
+            print("教师向学生发布公告测试用例：进入向学生发布公告小窗未通过！")
+            log.logger.error('发布公告：%s 未通过！进入向学生发布公告小窗失败' % noticeData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+            self.teacherNotice.screenShot(failScreenShot)
+            self.teacherNotice.clickStuClose()
             raise F
         else:
-            print("登录测试用例进入向教师发布公告小窗成功！")
+            log.logger.info('教师向学生发布公告：%s 成功进入对应发布公告小窗！' % noticeData["caseId"])
+            print("教师向学生发布公告测试用例进入向学生发布公告小窗成功！")
 
         '''创建公告测试用例'''
         self.teacherNotice.sendStuNoticeInfo(noticeData["title"], noticeData["content"])
@@ -81,14 +94,19 @@ class TestTeacherNotice(TeaUnittest):
         if message:
             try:
                 # self.assertIn(noticeData["expected"], message)
-                self.assertIn("计算机科学与技术学院", message)
+                self.assertIn("东莞理工学院", message)
             except Exception as F:
-                print('学院选择失败！')
+                print("教师向学生发布公告测试用例：学院选择失败！")
+                log.logger.error('教师向学生发布公告测试用例：%s 未通过！学院选择失败！' % noticeData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+                self.teacherNotice.screenShot(failScreenShot)
+                self.teacherNotice.clickStuClose()
                 raise F
             else:
                 print('学院选择成功！')
                 # self.adminNotice.clickClose()
-                wait = WebDriverWait(self.driver, 2)
+                wait = WebDriverWait(self.driver, 10)
                 wait.until(EC.alert_is_present())
                 alert = self.driver.switch_to.alert
                 sendNoticeText = alert.text
@@ -99,9 +117,16 @@ class TestTeacherNotice(TeaUnittest):
                         self.assertIn("发布成功", sendNoticeText)
                     except Exception as F:
                         print('发布失败！')
+                        log.logger.error('教师向学生发布公告测试用例：%s 未通过！发布失败！' % noticeData["caseId"])
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        failScreenShot = "fail_" + times + "_" + noticeData["caseId"] + ".png"
+                        self.teacherNotice.screenShot(failScreenShot)
+                        self.teacherNotice.clickStuClose()
                         raise F
                     else:
+                        log.logger.info('管理员向学生发布公告：%s 发布成功！' % noticeData["caseId"])
                         print('发布公告成功！')
+                        # self.teacherNotice.clickStuClose()
 
 
 if __name__ == '__main__':
