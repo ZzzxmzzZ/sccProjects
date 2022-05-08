@@ -8,7 +8,9 @@ from config.conf import reportPath
 from testCase.testAdminAction import TestAdminAction, TestAdminSearchAction
 from testCase.testAdminCourse import TestAdminCreateCourse, TestAdminAuditCourse, TestAdminSearchCourse
 from testCase.testAdminSchoolTree import TestAdminAddSchoolTree, TestAdminDeleteSchoolTree, TestAdminRenameSchoolTree
+from testCase.testAdminStuManage import TestAdminStuManage, TestAdminStuManageNoFile
 from testCase.testAdminStuNotice import TestAdminStuNotice
+from testCase.testAdminTeaManage import TestAdminTeaManage, TestAdminTeaManageNoFile
 from testCase.testAdminTeaNotice import TestAdminTeaNotice
 from testCase.testLogin import TestLogin
 from testCase.testLoginOut import TestAdminLoginOut, TestTeaLoginOut, TestStuLoginOut
@@ -172,7 +174,32 @@ def test12th():
     suite.addTest(lorder1)
     runner = BeautifulReport(suite)
     runner.report(filename=reportTitle, description=desc, report_dir=reportPath)
+#管理员教师管理模块
+def test13th():
+    now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+    reportTitle = "管理员教师管理模块功能测试报告" + now + ".html"
+    desc = "Excel批量录入教师用户测试用例"
 
+    suite = unittest.TestSuite()
+    lorder1 = unittest.TestLoader().loadTestsFromTestCase(TestAdminTeaManage)
+    lorder2 = unittest.TestLoader().loadTestsFromTestCase(TestAdminTeaManageNoFile)
+    suite.addTest(lorder1)
+    suite.addTest(lorder2)
+    runner = BeautifulReport(suite)
+    runner.report(filename=reportTitle, description=desc, report_dir=reportPath)
+#管理员学生管理模块
+def test14th():
+    now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+    reportTitle = "管理员学生管理模块功能测试报告" + now + ".html"
+    desc = "Excel批量录入学生用户测试用例"
+
+    suite = unittest.TestSuite()
+    lorder1 = unittest.TestLoader().loadTestsFromTestCase(TestAdminStuManage)
+    lorder2 = unittest.TestLoader().loadTestsFromTestCase(TestAdminStuManageNoFile)
+    suite.addTest(lorder1)
+    suite.addTest(lorder2)
+    runner = BeautifulReport(suite)
+    runner.report(filename=reportTitle, description=desc, report_dir=reportPath)
 if __name__=="__main__":
     #执行各功能点用例
     # testFirst()
@@ -186,5 +213,6 @@ if __name__=="__main__":
     # testninth()
     # testtenth()
     # testeleventh()
-    test12th()
-    # testseventh()
+    # test12th()
+    # test13th()
+    test14th()

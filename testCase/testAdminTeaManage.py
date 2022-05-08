@@ -30,6 +30,7 @@ class TestAdminTeaManage(AdminUnittest):
 
     @data(*fileData)
     def test_01_admin_teaManage(self, fileData):
+        ''' 管理员教师管理模块'''
         '''判断管理员是否进入了教师管理模块页面'''
         '''判断管理员能够上传文件成功.'''
 
@@ -42,10 +43,15 @@ class TestAdminTeaManage(AdminUnittest):
         try:
             self.assertEqual("教师管理系统", message)
         except Exception as F:
-            print("登录测试用例：进入教师管理系统页面未通过！")
+            print("管理员教师管理模块：进入教师管理页面未通过！")
+            log.logger.error('管理员教师管理模块：%s 未通过！未进入教师管理页面' % fileData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + fileData["caseId"] + ".png"
+            self.adminTeaManage.screenShot(failScreenShot)
             raise F
         else:
-            print("登录测试用例进入教师管理系统页面成功！")
+            log.logger.info('管理员教师管理模块：%s 成功进入教师管理页面！' % fileData["caseId"])
+            print("管理员教师管理模块：成功进入教师管理页面！")
 
         self.adminTeaManage.clickOpenTreeBtn()
         print("展开树成功")
@@ -63,9 +69,14 @@ class TestAdminTeaManage(AdminUnittest):
                 self.assertIn("Excel文件", message)
             except Exception as F:
                 print('点击录入按钮失败！')
+                log.logger.error('管理员教师管理模块：%s 点击录入失败！' % fileData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + fileData["caseId"] + ".png"
+                self.adminTeaManage.screenShot(failScreenShot)
                 raise F
             else:
                 print('点击录入按钮成功！')
+                log.logger.info('管理员教师管理模块：%s 点击录入按钮成功！' % fileData["caseId"])
                 # self.adminNotice.clickClose()
                 wait = WebDriverWait(self.driver, 10)
                 wait.until(EC.alert_is_present())
@@ -79,10 +90,19 @@ class TestAdminTeaManage(AdminUnittest):
                         self.assertIn(fileData["expected"], addTeaText)
                     except Exception as F:
                         print('失败！')
+                        log.logger.error('管理员教师管理模块：%s 录入教师用户失败！' % fileData["caseId"])
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        failScreenShot = "fail_" + times + "_" + fileData["caseId"] + ".png"
+                        self.adminTeaManage.screenShot(failScreenShot)
                         raise F
                     else:
                         print('成功！')
+                        log.logger.info('管理员教师管理模块：%s 录入教师用户通过！' % fileData["caseId"])
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        successScreenShot = "pass_" + times + "_" + fileData["caseId"] + ".png"
+                        self.adminTeaManage.screenShot(successScreenShot)
 
+class TestAdminTeaManageNoFile(AdminUnittest):
     def test_02_admin_teaManage(self):
         '''判断管理员未选择文件的时候点击录入'''
 
@@ -95,10 +115,15 @@ class TestAdminTeaManage(AdminUnittest):
         try:
             self.assertEqual("教师管理系统", message)
         except Exception as F:
-            print("登录测试用例：进入教师管理系统页面未通过！")
+            print("管理员教师管理模块：进入教师管理页面未通过！")
+            log.logger.error('管理员教师管理模块: 未通过！未进入教师管理页面')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + "TestAdminTeaManageNoFile1" + ".png"
+            self.adminTeaManage.screenShot(failScreenShot)
             raise F
         else:
-            print("登录测试用例进入教师管理系统页面成功！")
+            log.logger.info('管理员教师管理模块：成功进入教师管理页面！')
+            print("管理员教师管理模块：成功进入教师管理页面！")
 
         self.adminTeaManage.clickOpenTreeBtn()
         print("展开树成功")
@@ -114,6 +139,10 @@ class TestAdminTeaManage(AdminUnittest):
                 self.assertIn("Excel文件", message)
             except Exception as F:
                 print('点击录入按钮失败！')
+                log.logger.error('管理员教师管理模块：%s 点击录入失败！' % fileData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + "TestAdminTeaManageNoFile3" + ".png"
+                self.adminTeaManage.screenShot(failScreenShot)
                 raise F
             else:
                 print('点击录入按钮成功！')
@@ -130,9 +159,17 @@ class TestAdminTeaManage(AdminUnittest):
                         self.assertEqual("请选择文件", addTeaText)
                     except Exception as F:
                         print('用例失败！')
+                        log.logger.error('管理员教师管理模块：录入教师用户失败！')
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        failScreenShot = "fail_" + times + "_" + "TestAdminTeaManageNoFile2" + ".png"
+                        self.adminTeaManage.screenShot(failScreenShot)
                         raise F
                     else:
                         print('用例成功！')
+                        log.logger.error('管理员教师管理模块：录入教师用户成功！')
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        successScreenShot = "pass_" + times + "_" + "TestAdminTeaManageNoFile" + ".png"
+                        self.adminTeaManage.screenShot(successScreenShot)
 
 
 

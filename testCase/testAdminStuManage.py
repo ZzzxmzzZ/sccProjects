@@ -47,12 +47,23 @@ class TestAdminStuManage(AdminUnittest):
         try:
             self.assertEqual("学生管理系统", message)
         except Exception as F:
-            print("登录测试用例：进入学生管理系统页面未通过！")
+            print("管理员学生管理模块：进入学生管理页面未通过！")
+            log.logger.error('管理员学生管理模块：%s 未通过！未进入学生管理页面' % fileData["caseId"])
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + fileData["caseId"] + ".png"
+            self.adminStuManage.screenShot(failScreenShot)
             raise F
         else:
-            print("登录测试用例进入学生管理系统页面成功！")
+            log.logger.info('管理员学生管理模块：%s 成功进入学生管理页面！' % fileData["caseId"])
+            print("管理员学生管理模块：成功进入学生管理页面！")
 
-        self.adminStuManage.clickComputerBtn()
+        self.adminStuManage.clickwulianwangEle()
+        sleep(0.5)
+        self.adminStuManage.clickyearEle()
+        sleep(0.5)
+        self.adminStuManage.clickclassEle()
+        sleep(0.5)
+
         self.adminStuManage.clickUploadFileBtn(fileData["filePath"])
         sleep(1)
         self.adminStuManage.clickTransportBtn()
@@ -65,9 +76,14 @@ class TestAdminStuManage(AdminUnittest):
                 self.assertIn("Excel文件", message)
             except Exception as F:
                 print('点击录入按钮失败！')
+                log.logger.error('管理员学生管理模块：%s 点击录入失败！' % fileData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + fileData["caseId"] + ".png"
+                self.adminStuManage.screenShot(failScreenShot)
                 raise F
             else:
                 print('点击录入按钮成功！')
+                log.logger.info('管理员学生管理模块：%s 点击录入按钮成功！' % fileData["caseId"])
                 # self.adminNotice.clickClose()
                 wait = WebDriverWait(self.driver, 10)
                 wait.until(EC.alert_is_present())
@@ -81,10 +97,19 @@ class TestAdminStuManage(AdminUnittest):
                         self.assertIn("成功", addTeaText)
                     except Exception as F:
                         print('失败！')
+                        log.logger.error('管理员学生管理模块：%s 录入学生用户失败！' % fileData["caseId"])
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        failScreenShot = "fail_" + times + "_" + fileData["caseId"] + ".png"
+                        self.adminStuManage.screenShot(failScreenShot)
                         raise F
                     else:
                         print('成功！')
+                        log.logger.info('管理员学生管理模块：%s 录入学生用户通过！' % fileData["caseId"])
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        successScreenShot = "pass_" + times + "_" + fileData["caseId"] + ".png"
+                        self.adminStuManage.screenShot(successScreenShot)
 
+class TestAdminStuManageNoFile(AdminUnittest):
     def test_02_admin_stuManage(self):
         '''判断管理员未选择文件的时候点击录入'''
 
@@ -97,10 +122,15 @@ class TestAdminStuManage(AdminUnittest):
         try:
             self.assertEqual("学生管理系统", message)
         except Exception as F:
-            print("登录测试用例：进入学生管理系统页面未通过！")
+            print("管理员学生管理模块：进入学生管理页面未通过！")
+            log.logger.error('管理员学生管理模块: 未通过！未进入学生管理页面')
+            times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+            failScreenShot = "fail_" + times + "_" + "TestAdminStuManageNoFile1" + ".png"
+            self.adminStuManage.screenShot(failScreenShot)
             raise F
         else:
-            print("登录测试用例进入学生管理系统页面成功！")
+            log.logger.info('管理员学生管理模块：成功进入学生管理页面！')
+            print("管理员学生管理模块：成功进入学生管理页面！")
 
         self.adminStuManage.clickComputerBtn()
         sleep(0.5)
@@ -114,6 +144,10 @@ class TestAdminStuManage(AdminUnittest):
                 self.assertIn("Excel文件", message)
             except Exception as F:
                 print('点击录入按钮失败！')
+                log.logger.error('管理员教师管理模块：%s 点击录入失败！' % fileData["caseId"])
+                times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                failScreenShot = "fail_" + times + "_" + "TestAdminStuManageNoFile3" + ".png"
+                self.adminStuManage.screenShot(failScreenShot)
                 raise F
             else:
                 print('点击录入按钮成功！')
@@ -130,9 +164,17 @@ class TestAdminStuManage(AdminUnittest):
                         self.assertIn("请选择文件", addTeaText)
                     except Exception as F:
                         print('用例失败！')
+                        log.logger.error('管理员学生管理模块：录入学生用户失败！')
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        failScreenShot = "fail_" + times + "_" + "TestAdminStuManageNoFile2" + ".png"
+                        self.adminStuManage.screenShot(failScreenShot)
                         raise F
                     else:
                         print('用例成功！')
+                        log.logger.error('管理员学生管理模块：录入学生用户成功！')
+                        times = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+                        successScreenShot = "pass_" + times + "_" + "TestAdminStuManageNoFile" + ".png"
+                        self.adminStuManage.screenShot(successScreenShot)
 
 
 if __name__ == '__main__':

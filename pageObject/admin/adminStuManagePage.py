@@ -27,11 +27,25 @@ class AdminStuManagePage(BasePage):
     stuManageEle = (By.XPATH, eleData.readExcel(71, 3))
     stuManaPageTextEle = (By.XPATH, eleData.readExcel(72, 3))
     computerEle = (By.XPATH, eleData.readExcel(73, 3))
-    uploadFileEle = (By.XPATH, eleData.readExcel(74, 3))
-    transportEle = (By.ID, eleData.readExcel(75, 3))
+    uploadFileEle = (By.ID, eleData.readExcel(74, 3))
+    transportEle = (By.XPATH, eleData.readExcel(75, 3))
 
     exportPersonEle = (By.XPATH, eleData.readExcel(76, 3))
     downloadFileEle = (By.XPATH, eleData.readExcel(77, 3))
+    wulianwangEle = (By.XPATH, eleData.readExcel(104, 3))
+    yearEle = (By.XPATH, eleData.readExcel(105, 3))
+    classEle = (By.XPATH, eleData.readExcel(106, 3))
+    # 点击学生管理模块按钮
+    def clickwulianwangEle(self):
+        self.locator_element(*self.wulianwangEle).click()
+
+    # 点击学生管理模块按钮
+    def clickyearEle(self):
+        self.locator_element(*self.yearEle).click()
+
+    # 点击学生管理模块按钮
+    def clickclassEle(self):
+        self.locator_element(*self.classEle).click()
 
     # 点击学生管理模块按钮
     def clickStuManageBtn(self):
